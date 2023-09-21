@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +27,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('admin', function () {
-    return view('panel');
+Route::get('panel', function () {
+    return view('admin.panel');
 });
+
+Route::Resource('tasks',TaskController::class);
