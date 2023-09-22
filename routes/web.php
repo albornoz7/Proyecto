@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProductosController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +32,4 @@ Route::get('panel', function () {
     return view('admin.panel');
 });
 
-Route::Resource('tasks',TaskController::class);
+Route::resource('productos',ProductosController::class);
