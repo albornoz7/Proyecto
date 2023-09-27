@@ -3,7 +3,7 @@
 @section('content')
 
 
-<a href="{{route('productos.index')}}" class="btn btn-primary">Productos</a>
+<a href="{{route('productos.index')}}" class="px-4 py-2 bg-green-500 m-5 text-white rounded-lg">Productos</a>
 <div class="w-3/5 mx-auto">
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -15,7 +15,7 @@
         </ul>
     </div>
 @endif
-<form action="{{route('productos.store')}}" method="POST">
+<form action="{{route('productos.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
 <div class="relative z-8 w-full mb-6 group">
 <input type="file" name="foto" id="" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  />

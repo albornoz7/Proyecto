@@ -3,7 +3,7 @@
 @section('content')
 
 
-<a href="{{route('productos.index')}}" class="btn btn-primary">Productos</a>
+<a href="{{route('productos.index')}}" class="px-4 py-2 bg-green-500 m-5 text-white rounded-lg">Productos</a>
 <div class="w-3/5 mx-auto">
     {{-- @if ($errors->any())
     <div class="alert alert-danger">

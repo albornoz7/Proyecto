@@ -6,12 +6,19 @@ use App\Models\productos;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Livewire\Features\SupportRedirects\Redirector;
 
 class ProductosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+    public function panel(){
+        $productos = productos::all(); // Recuperar todos los registros de la tabla 'productos'
+        return view('admin.panel', compact('productos'));
+    }
+
     public function index():View
     {
         $productos = productos::latest()->paginate(5); // Recuperar todos los registros de la tabla 'productos'
@@ -32,15 +39,29 @@ class ProductosController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-'nombre'=>'required',
-'descripcion'=>'required',
-'cantidad'=>'required',
-'precio'=>'required',
-'status'=>'required',
-'due_date'=>'required',
+        'nombre'=>'required',
+        'descripcion'=>'required',
+        'cantidad'=>'required',
+        'precio'=>'required',
+        'status'=>'required',
+        'due_date'=>'required',
 
         ]);
-        productos::create($request->all());
+    $imageName = date('YmdHis') . '.' . $request->file('foto')->getClientOriginalExtension();
+    $request->file('foto')->move(public_path('fotos'), $imageName);
+
+        productos::create([
+            'nombre' => $request->input('nombre'),
+            'descripcion' => $request->input('descripcion'),
+            'cantidad' => $request->input('cantidad'),
+            'precio' => $request->input('precio'),
+            'status' => $request->input('status'),
+            'due_date' => $request->input('due_date'),
+            'foto'=> 'fotos/' . $imageName,
+        ]
+            
+    
+    );
         return redirect()->route('productos.index');
     
     }
@@ -82,13 +103,8 @@ class ProductosController extends Controller
     
 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(productos $productos)
-    {
-        $productos->destroy($productos);
-        return redirect()->route('productos.index');
+    public function destroy($id){   
+        productos::destroy($id);
+        return redirect()->route('productos.index');   return route('productos.index');
     }
 }

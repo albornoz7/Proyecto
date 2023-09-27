@@ -33,3 +33,5 @@ Route::get('panel', function () {
 });
 
 Route::resource('productos',ProductosController::class);
+
+Route::get('panel', [ProductosController::class, 'panel'])->name('panel');
