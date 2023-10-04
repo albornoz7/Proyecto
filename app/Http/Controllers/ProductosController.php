@@ -92,6 +92,13 @@ class ProductosController extends Controller
     $request->validate([
         
     ]);
+    if($request->hasFile('foto')){
+        $currenImagenPath = $producto->imgpath;
+        $imageName = date('YmdHis') . '.' . $request->file('foto')->getClientOriginalExtension();
+        $request->file('foto')->move(public_path('fotos'), $imageName);
+    }
+     
+    
     $producto->nombre = $request->input('nombre');
     $producto->descripcion = $request->input('descripcion');
     $producto->cantidad = $request->input('cantidad');
