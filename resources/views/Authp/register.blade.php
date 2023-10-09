@@ -35,7 +35,7 @@
         
     </form>
     <div class="text-center">
-        <p class="text-sm">¿Ya tienes una cuenta? <a href="#" class="text-cyan-600">Inicia sesión</a></p>
+        <p class="text-sm">¿Ya tienes una cuenta? <a href="{{route('login')}}" class="text-cyan-600">Inicia sesión</a></p>
     </div>
     
     </div>

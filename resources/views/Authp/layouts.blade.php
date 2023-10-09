@@ -29,11 +29,11 @@
                     <div class="text-sm lg:flex-grow mt-2 animated jackinthebox xl:mx-8">
                         @guest
                         <a {{ (request()->is('login')) ? 'active' : '' }} href="{{ route('login') }}"
-                            class="block lg:inline-block text-md font-bold  text-orange-500  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                            class="block lg:inline-block text-md font-bold  text-blue-500  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             Iniciar sesion
                         </a>
                         <a {{ (request()->is('register')) ? 'active' : '' }} href="{{ route('register') }}"
-                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-orange-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                            class="block lg:inline-block text-md font-bold  text-gray-900  sm:hover:border-indigo-400  hover:text-red-500 mx-2 focus:text-blue-500  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                             Registrarme
                         </a>
                         @else    

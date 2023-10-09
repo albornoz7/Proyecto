@@ -14,7 +14,8 @@
         </div>
     </div>
     <div>
-      <a href="{{route('productos.create')}}" class="px-4 py-2 bg-green-500 m-5 text-white rounded-lg">Agregar Nuevo Producto</a>
+      <a href="{{route('productos.create')}}" class="px-4 py-2 bg-blue-500 m-5 text-white rounded-lg">Agregar Nuevo Producto</a>
+      <a href="{{route('panel')}}" class="px-4 py-2 bg-blue-500 m-5 text-white rounded-lg">Regresar a la pagina principal</a>
   </div>
 <!-- component -->
 <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
