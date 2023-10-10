@@ -20,6 +20,11 @@ class ProductosController extends Controller
         return view('admin.panel', compact('productos'));
     }
 
+    public function wiki():View{
+        
+        return view('wiki.enciclo');
+    }
+
     public function index():View
     {
         $productos = productos::latest()->paginate(5); // Recuperar todos los registros de la tabla 'productos'
@@ -110,29 +115,23 @@ class ProductosController extends Controller
     }*/
     public function update(Request $request, $id){
 
-        $producto = productos::find($id);
+        $imageName = date('YmdHis') . '.' . $request->file('foto')->getClientOriginalExtension();
+    $request->file('foto')->move(public_path('fotos'), $imageName);
+    
+    productos::update([
+        'nombre' => $request->input('nombre'),
+        'descripcion' => $request->input('descripcion'),
+        'cantidad' => $request->input('cantidad'),
+        'precio' => $request->input('precio'),
+        'status' => $request->input('status'),
+        'due_date' => $request->input('due_date'),
+        'foto'=> 'fotos/' . $imageName,
+    ]
+        
 
-        $imagenAnterior = $producto->foto;
+);
 
-        $producto->nombre = $request->input('nombre');
-        $producto->precio = $request->input('precio');
-        $producto->cantidad = $request->input('cantidad');
-
-        if ($request->hasFile('foto')) {
-
-            if ($imagenAnterior) {
-                Storage::delete('fotos/' . $imagenAnterior);
-            }
-
-            $foto = $request->file('fotos');
-            $rutaGuardarImagen = "fotos/";
-            $imgGuardado = date('YmdHis'). "." . $foto->getClientOriginalExtension();
-            $foto->move($rutaGuardarImagen, $imgGuardado);
-
-            $producto['foto'] = $imgGuardado;
-        }
-
-        $producto->save();
+$id->save();
 
         return redirect()->route('productos.index');
 

@@ -44,3 +44,6 @@ Route::controller(LoginController::class)->group(function() {
     Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::post('/logout', 'logout')->name('logout');
 });
+Route::get('wiki', function () {
+    return view('wiki.enciclo');
+})->name('wiki');
