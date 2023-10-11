@@ -17,6 +17,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except([
             'logout', 'panel'
         ]);
+        $this->middleware('auth')->only('panel'); 
     }
 
     /**

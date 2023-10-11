@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('due_date');
             $table->string('status');
             $table->string('foto')->nullable();
+            $table->string('categoria');
             $table->timestamps();
         });
     }

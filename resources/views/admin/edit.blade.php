@@ -56,6 +56,21 @@
     </select>
     </div>
     </div>
+
+
+    <div class="relative z-0 w-full mb-6 group">
+        <div class="relative z-0 w-full mb-6 group">
+        <strong >Estado (inicial):</strong>
+        <select name="categoria" id="">
+        <option value="PlayStation">PlayStation</option>
+        <option value="Xbox">Xbox</option>
+        <option value="Nintendo">Nintendo</option>
+        <option value="Perifericos">Perifericos</option>
+        <option value="Otros">Otros</option>
+        </select>
+        </div>
+        </div>
+
     </div>
 
 

@@ -29,13 +29,14 @@ Route::get('/', function () {
 //     })->name('dashboard');
 // });
 
-Route::get('panel', function () {
-    return view('admin.panel');
-});
+// Route::get('panel', function () {
+//     return view('admin.panel');
+// });
 
-Route::resource('productos',ProductosController::class);
+Route::resource('productos',ProductosController::class)->middleware('auth');;
 
-Route::get('panel', [ProductosController::class, 'panel'])->name('panel');
+Route::get('panel', [ProductosController::class, 'panel'])->name('panel')->middleware('auth');
+Route::post('Categoria', [ProductosController::class, 'categoria'])->name('categoria');
 
 Route::controller(LoginController::class)->group(function() {
     Route::get('/register', 'register')->name('register');

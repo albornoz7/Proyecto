@@ -27,6 +27,7 @@
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Descripcion</th>
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Cantidad</th>
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Precio</th>
+        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Categoria</th>
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Fecha de Publicacion</th>
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Estado</th>
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Acciones</th>
@@ -60,6 +61,11 @@
         <td>
           <div class="text-sm">
             <div class="font-medium text-gray-700">{{ $producto->precio }}</div>
+          </div>
+        </td>
+        <td>
+          <div class="text-sm">
+            <div class="font-medium text-gray-700">{{ $producto->categoria }}</div>
           </div>
         </td>
         <td>
